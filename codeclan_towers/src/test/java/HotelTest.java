@@ -12,6 +12,12 @@ public class HotelTest {
     private ConferenceRoom conferenceroom1;
     private People person1;
     private People person2;
+    private People person3;
+    private People person4;
+    private People person5;
+    private People person6;
+    private People person7;
+    private People person8;
 
 
 
@@ -20,11 +26,19 @@ public class HotelTest {
         hotel1 = new Hotel("The Kittz");
         person1 = new People("Fat Cat Joe", 2000);
         person2 = new People("Kitty Minaj", 1000);
+        person3 = new People("Meowyance", 1000);
+        person4 = new People("Paw-Z", 1000);
+        person5 = new People("Snoop Catty Cat", 1000);
+        person6 = new People("Purr Daddy", 1000);
+        person7 = new People("Mick Jaguar", 1000);
+        person8 = new People("Missy Pawelliot", 1000);
+
         diningroom1 = new DiningRoom("Sheba", 25);
+
         conferenceroom1 = new ConferenceRoom("The Clowder", 25, 500);
+
         bedroom1 = new Bedroom ("Deluxe Empty Ikea Box", 50, BedroomType.SINGLE);
         bedroom2 = new Bedroom ("Plush Pillow Penthouse", 500, BedroomType.PENTHOUSE);
-
     }
 
     @Test
@@ -64,48 +78,36 @@ public class HotelTest {
 
     @Test
     public void hotelCanAddParticularPersonToAParticularRoom(){
-        hotel1.checkParticularGuestintoParticularRoom(person1, bedroom1);
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person1, bedroom1);
+        assertEquals(1, bedroom1.getPeople().size());
+    }
+
+    @Test
+    public void hotelCannotAddPersonToRoomIfFull(){
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person1, bedroom1);
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person2, bedroom1);
         assertEquals(1, bedroom1.getPeople().size());
     }
 
     @Test
     public void hotelCanCheckGuestOutOfRoom(){
-        hotel1.checkParticularGuestintoParticularRoom(person1, bedroom1);
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person1, bedroom1);
         hotel1.checkGuestOutofRoom(bedroom1);
         assertEquals(0, bedroom1.getPeople().size());
     }
 
     @Test
-    public void hotelCanGetGuestInfo(){
-        hotel1.checkParticularGuestintoParticularRoom(person1, bedroom1);
-        hotel1.checkParticularGuestintoParticularRoom(person2, bedroom1);
-        assertEquals(2, hotel1.getPeopleListFromRoom(bedroom1).size());
-//        assertEquals("Fat Cat Joe", hotel1.getPersonInfoFromRoom(bedroom1));
+    public void hotelCanGetGuestInfoAsNumber(){
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person1, bedroom2);
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person2, bedroom2);
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person3, bedroom2);
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person4, bedroom2);
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person5, bedroom2);
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person6, bedroom2);
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person7, bedroom2);
+        assertEquals(7, hotel1.getPeopleListFromRoom(bedroom2).size());
+
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    @Test
-//    public void checkBedRoomType(){
-//        assertEquals("Single Room", bedroom2.getBedRoomType());
-//    }
-
-
-
-//        HashMap<BedroomType, Integer> bedroomTypeIntegerHashMap = new HashMap<>();
-//        bedroomTypeIntegerHashMap.put(BedroomType.SINGLE, 1);
-
-//        bedroom2 = new Bedroom("Plush Cushion", bedroomTypeIntegerHashMap );
 
 }

@@ -6,12 +6,16 @@ public class Hotel {
     private String hotelName;
     private ArrayList<Room> hotelRooms;
     private ArrayList<People> hotelPeople;
+    private ArrayList<Bedroom> bedRoom;
+    private ArrayList<ConferenceRoom> conferenceRoom;
 
 
     public Hotel(String hotelName) {
         this.hotelName = hotelName;
         this.hotelRooms = new ArrayList<>();
         this.hotelPeople = new ArrayList<>();
+        this.bedRoom = bedRoom;
+        this.conferenceRoom = conferenceRoom;
     }
 
     public String getHotelName() {
@@ -35,28 +39,28 @@ public class Hotel {
     }
 
 
-    public void checkParticularGuestintoParticularRoom(People guest, Room room) {
-        // if room size is equal to or less than amount of guests checking in, allow the room to add the guest.
-
-        room.addPeopleToRoom(guest);
+    public void checkParticularGuestintoParticularRoomIfSpace(People guest, Bedroom room) {
+        // if room size is greater than amount of guests checking in, allow the room to add the guest.
+        if (room.getBedroomCapacity() > getPeopleListFromRoom(room).size()){
+        room.addPeopleToRoom(guest);}
     }
 
-    public void checkGuestIntoRoomAndRemoveFromHotel(Room room) {
+    public void checkGuestIntoRoomAndRemoveFromHotel(Bedroom room) {
 
         room.addPeopleToRoom(this.hotelPeople.remove(0));
     }
 
-    public void checkGuestOutofRoom(Room room) {
+    public void checkGuestOutofRoom(Bedroom room) {
         room.removePeopleFromRoom();
     }
 
 
-    public ArrayList<People> getPeopleListFromRoom(Room room) {
+    public ArrayList<People> getPeopleListFromRoom(Bedroom room) {
         return room.getPeople();
     }
 
 
-    // for all People in Arraylist, get their index number, and return their name by concatonating the strings.
+    // for all People in Arraylist, get their index number, and find and store their name. Then return all names (concatonate?)
 
 //    public String getPersonInfoFromRoom(Room room) {
 //        for (int i = 0; i < room.getPeople().size(); i++){
