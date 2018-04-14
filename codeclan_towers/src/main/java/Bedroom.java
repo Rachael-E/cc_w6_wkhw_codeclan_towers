@@ -3,16 +3,15 @@ import java.util.HashMap;
 
 public class Bedroom extends Room {
 
-    private HashMap<BedroomType, Integer> type;
+    private double nightlyRate;
 
-    public Bedroom(String roomName){
+    public Bedroom(String roomName, double nightlyRate) {
         super(roomName);
-
-        this.type = new HashMap<>();
+        this.nightlyRate = nightlyRate;
 
     }
 
-    public HashMap<BedroomType, Integer> getType() {
-        return type;
+    public double getNightlyRate() {
+        return nightlyRate;
     }
 }
