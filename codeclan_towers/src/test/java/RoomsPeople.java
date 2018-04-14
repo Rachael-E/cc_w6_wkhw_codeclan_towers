@@ -81,16 +81,4 @@ public class RoomsPeople {
 
 
 
-//    @Test
-//    public void checkBedRoomType(){
-//        assertEquals("Single Room", bedroom2.getBedRoomType());
-//    }
-
-
-
-//        HashMap<BedroomType, Integer> bedroomTypeIntegerHashMap = new HashMap<>();
-//        bedroomTypeIntegerHashMap.put(BedroomType.SINGLE, 1);
-
-//        bedroom2 = new Bedroom("Plush Cushion", bedroomTypeIntegerHashMap );
-
 }
