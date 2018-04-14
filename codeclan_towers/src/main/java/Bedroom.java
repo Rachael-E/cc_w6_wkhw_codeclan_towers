@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class Bedroom extends Room {
 
     private double nightlyRate;
-    private BedroomType bedroomType;
+    public BedroomType bedroomType;
 
     public Bedroom(String roomName, double nightlyRate, BedroomType bedroomType) {
         super(roomName);

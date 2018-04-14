@@ -14,7 +14,7 @@ public class RoomsPeople {
 
 
     @Before
-    public void before(){
+    public void before() {
         bedroom1 = new Bedroom("Deluxe Cardboard Box", 50, BedroomType.SINGLE);
         diningroom1 = new DiningRoom("Sheba Restaurant", 25);
         conferenceRoom1 = new ConferenceRoom("The Clowder", 25, 100);
@@ -25,84 +25,90 @@ public class RoomsPeople {
     }
 
     @Test
-    public void personHasName(){
+    public void personHasName() {
         assertEquals("Fat Cat Joe", person1.getName());
     }
 
     @Test
-    public void personCanSetWallet(){
+    public void personCanSetWallet() {
         person1.setWallet(2500);
         assertEquals(2500, person1.getWallet(), 0.1);
     }
 
     @Test
-    public void bedroomHasName(){
+    public void bedroomHasName() {
         assertEquals("Deluxe Cardboard Box", bedroom1.getRoomName());
     }
 
     @Test
-    public void bedroomStartsNoGuests(){
+    public void bedroomStartsNoGuests() {
         assertEquals(0, bedroom1.getPeople().size());
     }
 
     @Test
-    public void bedroomHasNightlyRate(){
+    public void bedroomHasNightlyRate() {
         assertEquals(50, bedroom1.getNightlyRate(), 0.1);
     }
 
     @Test
-    public void bedroomHasType(){
+    public void bedroomHasType() {
         assertEquals("Single Room", bedroom1.getBedroomTypeDescription());
     }
 
     @Test
-    public void bedroomHasCapacity(){
+    public void bedroomHasCapacity() {
         assertEquals(1, bedroom1.getBedroomCapacity());
     }
 
     @Test
-    public void bedroomHasGuest(){
+    public void bedroomHasGuest() {
         bedroom1.addPeopleToRoom(person1);
         assertEquals(1, bedroom1.getPeople().size());
     }
 
+    // Trying to return a guest's name from an array...
     @Test
-    public void bedroomCanRemoveGuest(){
+    public void bedroomHasGuestName() {
+        bedroom1.addPeopleToRoom(person1);
+        assertEquals("Fat Cat Joe", bedroom1.getPeopleName());
+    }
+
+    @Test
+    public void bedroomCanRemoveGuest() {
         bedroom1.removePeopleFromRoom();
         assertEquals(0, bedroom1.getPeople().size());
     }
 
     @Test
-    public void diningRoomHasCapacity(){
+    public void diningRoomHasCapacity() {
         assertEquals(25, diningroom1.getCapacity());
     }
 
     @Test
-    public void diningroomHasName(){
+    public void diningroomHasName() {
         assertEquals("Sheba Restaurant", diningroom1.getRoomName());
     }
 
     @Test
-    public void conferenceRoomHasName(){
+    public void conferenceRoomHasName() {
         assertEquals("The Clowder", conferenceRoom1.getRoomName());
     }
 
     @Test
-    public void conferenceRoomHasCapacity(){
+    public void conferenceRoomHasCapacity() {
         assertEquals(25, conferenceRoom1.getCapacity());
     }
 
     @Test
-    public void conferenceRoomHasDailyRate(){
+    public void conferenceRoomHasDailyRate() {
         assertEquals(100, conferenceRoom1.getDailyRate(), 0.1);
     }
 
     @Test
-    public void conferenceRoomCanSetRate(){
+    public void conferenceRoomCanSetRate() {
         conferenceRoom1.setDailyRate(200);
         assertEquals(200, conferenceRoom1.getDailyRate(), 0.1);
     }
-
 
 
 }

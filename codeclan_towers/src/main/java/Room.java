@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public abstract class Room {
@@ -17,6 +18,11 @@ public abstract class Room {
         return people;
     }
 
+    public String getPeopleName() {
+        return people.get(0).getName();
+
+    }
+
     public void addPeopleToRoom(People person) {
         this.people.add(person);
     }
@@ -24,8 +30,6 @@ public abstract class Room {
     public void removePeopleFromRoom() {
         this.people.clear();
     }
-
-
 
 
 }

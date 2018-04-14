@@ -55,7 +55,7 @@ public class HotelTest {
     }
 
     @Test
-    public void hotelCanAddPeopleToARoom(){
+    public void hotelCanAddPeopleToARoomAndRemoveFromHotel(){
         hotel1.addPeopleToHotel(person1);
         hotel1.checkGuestIntoRoomAndRemoveFromHotel(bedroom1);
         assertEquals(0, hotel1.getHotelPeople().size());
@@ -69,21 +69,17 @@ public class HotelTest {
     }
 
     @Test
-    public void hotelCanRemovePeopleFromRoom(){
-        hotel1.addPeopleToHotel(person1);
-        hotel1.checkGuestIntoRoomAndRemoveFromHotel(bedroom1);
+    public void hotelCanCheckGuestOutOfRoom(){
+        hotel1.checkParticularGuestintoParticularRoom(person1, bedroom1);
         hotel1.checkGuestOutofRoom(bedroom1);
-        assertEquals(0, hotel1.getHotelPeople().size());
         assertEquals(0, bedroom1.getPeople().size());
-
     }
 
     @Test
     public void hotelCanGetGuestInfo(){
         hotel1.checkParticularGuestintoParticularRoom(person1, bedroom1);
         hotel1.checkParticularGuestintoParticularRoom(person2, bedroom1);
-
-        assertEquals(2, bedroom1.getPeople().size());
+        assertEquals(2, hotel1.getPeopleListFromRoom(bedroom1).size());
 //        assertEquals("Fat Cat Joe", hotel1.getPersonInfoFromRoom(bedroom1));
     }
 

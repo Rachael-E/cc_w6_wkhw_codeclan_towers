@@ -35,8 +35,9 @@ public class Hotel {
     }
 
 
+    public void checkParticularGuestintoParticularRoom(People guest, Room room) {
+        // if room size is equal to or less than amount of guests checking in, allow the room to add the guest.
 
-    public void checkParticularGuestintoParticularRoom(People guest, Room room){
         room.addPeopleToRoom(guest);
     }
 
@@ -45,23 +46,23 @@ public class Hotel {
         room.addPeopleToRoom(this.hotelPeople.remove(0));
     }
 
-
-
-
     public void checkGuestOutofRoom(Room room) {
         room.removePeopleFromRoom();
     }
 
-//    public String getPersonInfoFromRoom(Room room) {
-//        for (int i = 0; i <= room.getPeople().size(); i++)
-//            (room.getPeople().get(i));
-//
-//        return room.getPeople().get(0).getName();
-//    }
+
+    public ArrayList<People> getPeopleListFromRoom(Room room) {
+        return room.getPeople();
+    }
+
+
+    // for all People in Arraylist, get their index number, and return their name by concatonating the strings.
 
 //    public String getPersonInfoFromRoom(Room room) {
-////        for (int i = 0; i <= room.getPeople().size(); i++)
-////            return (room.getPeople().get(i));
+//        for (int i = 0; i < room.getPeople().size(); i++){
+//            (room.getPeople().get(i).getName();
+//          }
+//
 //        return room.getPeople().get(0).getName();
 //    }
 
