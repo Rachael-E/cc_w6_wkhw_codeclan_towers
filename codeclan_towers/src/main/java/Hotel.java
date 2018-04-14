@@ -8,7 +8,7 @@ public class Hotel {
     private ArrayList<People> hotelPeople;
 
 
-    public Hotel(String hotelName){
+    public Hotel(String hotelName) {
         this.hotelName = hotelName;
         this.hotelRooms = new ArrayList<>();
         this.hotelPeople = new ArrayList<>();
@@ -26,30 +26,43 @@ public class Hotel {
         return hotelRooms;
     }
 
-    public void addRoomToHotel(Room room){
+    public void addRoomToHotel(Room room) {
         this.hotelRooms.add(room);
     }
 
-    public void addPeopleToHotel(People person){
+    public void addPeopleToHotel(People person) {
         this.hotelPeople.add(person);
     }
 
-    public void checkGuestIntoRoom(Room room){
-       People personToAdd = this.hotelPeople.remove(0);
-       room.addPeopleToRoom(personToAdd);
+
+
+    public void checkParticularGuestintoParticularRoom(People guest, Room room){
+        room.addPeopleToRoom(guest);
     }
 
-    public void checkGuestOutofRoom(Room room){
+    public void checkGuestIntoRoomAndRemoveFromHotel(Room room) {
+
+        room.addPeopleToRoom(this.hotelPeople.remove(0));
+    }
+
+
+
+
+    public void checkGuestOutofRoom(Room room) {
         room.removePeopleFromRoom();
     }
 
-    public String getPersonInfoFromRoom(Room room) {
-//        for (int i = 0; i < room.getPeople().size(); i++)
-//            return (room.getPeople().get(i));
-        return room.getPeople().get(0).getName();
-    }
+//    public String getPersonInfoFromRoom(Room room) {
+//        for (int i = 0; i <= room.getPeople().size(); i++)
+//            (room.getPeople().get(i));
+//
+//        return room.getPeople().get(0).getName();
+//    }
 
-//    public People checkGuestInfoInRoom (){
+//    public String getPersonInfoFromRoom(Room room) {
+////        for (int i = 0; i <= room.getPeople().size(); i++)
+////            return (room.getPeople().get(i));
+//        return room.getPeople().get(0).getName();
 //    }
 
 
