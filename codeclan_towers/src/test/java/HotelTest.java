@@ -19,8 +19,8 @@ public class HotelTest {
         person1 = new People("Fat Cat Joe", 2000);
         diningroom1 = new DiningRoom("Sheba", 25);
         conferenceroom1 = new ConferenceRoom("The Clowder", 25, 500);
-        bedroom1 = new Bedroom ("Deluxe Empty Ikea Box", 50);
-        bedroom2 = new Bedroom ("Plush Pillow Penthouse", 500);
+        bedroom1 = new Bedroom ("Deluxe Empty Ikea Box", 50, BedroomType.SINGLE);
+        bedroom2 = new Bedroom ("Plush Pillow Penthouse", 500, BedroomType.PENTHOUSE);
 
     }
 
@@ -46,9 +46,17 @@ public class HotelTest {
     }
 
     @Test
-    public void hotelStartsNoBedRoomTypes(){
-        assertEquals(0, hotel1.getHotelBedRoomTypes().size());
+    public void hotelCanAddPeople(){
+        hotel1.addPeopleToHotel(person1);
+        assertEquals(1, hotel1.getHotelPeople().size());
     }
+
+//    @Test
+//    public void hotelAddsGuestToBedroom(){
+//        hotel1.addPeopleToHotel(person1);
+//        hotel1.addRoomToHotel(bedroom1);
+//        hotel1.addHotelPeopleToHotelBedRoom(person1, bedroom1);
+//    }
 
 
 

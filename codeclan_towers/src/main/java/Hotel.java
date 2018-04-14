@@ -6,13 +6,12 @@ public class Hotel {
     private String hotelName;
     private ArrayList<Room> hotelRooms;
     private ArrayList<People> hotelPeople;
-    private HashMap<BedroomType, Integer> hotelBedRoomTypes;
+
 
     public Hotel(String hotelName){
         this.hotelName = hotelName;
         this.hotelRooms = new ArrayList<>();
         this.hotelPeople = new ArrayList<>();
-        this.hotelBedRoomTypes = new HashMap<>();
     }
 
     public String getHotelName() {
@@ -27,14 +26,18 @@ public class Hotel {
         return hotelRooms;
     }
 
-    public HashMap<BedroomType, Integer> getHotelBedRoomTypes() {
-        return hotelBedRoomTypes;
-    }
-
     public void addRoomToHotel(Room room){
         this.hotelRooms.add(room);
-
     }
+
+    public void addPeopleToHotel(People person){
+        this.hotelPeople.add(person);
+    }
+
+//    public void addHotelPeopleToHotelBedRoom(People person){
+//     this.hotelRooms.add(person);
+
+//    }
 
     //public Hotel(String roomName, HashMap<BedroomType, Integer> type){
 //        super(roomName);

@@ -14,7 +14,7 @@ public class RoomsPeople {
 
     @Before
     public void before(){
-        bedroom1 = new Bedroom("Deluxe Cardboard Box", 50);
+        bedroom1 = new Bedroom("Deluxe Cardboard Box", 50, BedroomType.SINGLE);
         diningroom1 = new DiningRoom("Sheba Restaurant", 25);
         conferenceRoom1 = new ConferenceRoom("The Clowder", 25, 100);
 
@@ -45,7 +45,16 @@ public class RoomsPeople {
     @Test
     public void bedroomHasNightlyRate(){
         assertEquals(50, bedroom1.getNightlyRate(), 0.1);
+    }
 
+    @Test
+    public void bedroomHasType(){
+        assertEquals("Single Room", bedroom1.getBedroomTypeDescription());
+    }
+
+    @Test
+    public void bedroomHasCapacity(){
+        assertEquals(1, bedroom1.getBedroomCapacity());
     }
 
     @Test
