@@ -34,18 +34,14 @@ public class Hotel {
         this.hotelPeople.add(person);
     }
 
+    public void addPeopleToRoom(Room room){
+       People personToAdd = this.hotelPeople.remove(0);
+       room.addPeopleToRoom(personToAdd);
+    }
+
 //    public void addHotelPeopleToHotelBedRoom(People person){
 //     this.hotelRooms.add(person);
 
-//    }
-
-    //public Hotel(String roomName, HashMap<BedroomType, Integer> type){
-//        super(roomName);
-//        this.type = type;
-//     }
-//    public Integer getBedRoomType() {
-//        return type.get(BedroomType.SINGLE.getRoomType());
-//    }
 
 
 }

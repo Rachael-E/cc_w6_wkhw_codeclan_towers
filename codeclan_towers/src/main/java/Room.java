@@ -16,4 +16,9 @@ public abstract class Room {
     public ArrayList<People> getPeople() {
         return people;
     }
+
+    public void addPeopleToRoom(People person){
+        this.people.add(person);
+
+    }
 }

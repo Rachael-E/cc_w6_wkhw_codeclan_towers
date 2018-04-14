@@ -58,6 +58,12 @@ public class RoomsPeople {
     }
 
     @Test
+    public void bedroomHasGuest(){
+        bedroom1.addPeopleToRoom(person1);
+        assertEquals(1, bedroom1.getPeople().size());
+    }
+
+    @Test
     public void diningRoomHasCapacity(){
         assertEquals(25, diningroom1.getCapacity());
     }

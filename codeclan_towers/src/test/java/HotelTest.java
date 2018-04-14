@@ -52,11 +52,13 @@ public class HotelTest {
     }
 
 //    @Test
-//    public void hotelAddsGuestToBedroom(){
-//        hotel1.addPeopleToHotel(person1);
-//        hotel1.addRoomToHotel(bedroom1);
-//        hotel1.addHotelPeopleToHotelBedRoom(person1, bedroom1);
+//    public void hotelCanAddPeopleToRoom(){
+//
+//        hotel1.addPeopleToRoom(bedroom1);
+//        assertEquals(1, hotel1.getHotelPeople().size());
 //    }
+
+
 
 
 
