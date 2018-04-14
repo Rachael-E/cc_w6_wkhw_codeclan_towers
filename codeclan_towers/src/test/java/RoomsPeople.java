@@ -8,6 +8,7 @@ import static org.junit.Assert.assertEquals;
 public class RoomsPeople {
     private Bedroom bedroom1;
     private People person1;
+    private People person2;
     private DiningRoom diningroom1;
     private ConferenceRoom conferenceRoom1;
 
@@ -19,6 +20,8 @@ public class RoomsPeople {
         conferenceRoom1 = new ConferenceRoom("The Clowder", 25, 100);
 
         person1 = new People("Fat Cat Joe", 1000);
+
+        person2 = new People("Kitty Minaj", 1000);
     }
 
     @Test
@@ -61,6 +64,12 @@ public class RoomsPeople {
     public void bedroomHasGuest(){
         bedroom1.addPeopleToRoom(person1);
         assertEquals(1, bedroom1.getPeople().size());
+    }
+
+    @Test
+    public void bedroomCanRemoveGuest(){
+        bedroom1.removePeopleFromRoom();
+        assertEquals(0, bedroom1.getPeople().size());
     }
 
     @Test

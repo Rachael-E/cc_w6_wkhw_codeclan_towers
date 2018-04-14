@@ -4,7 +4,7 @@ public abstract class Room {
     private String roomName;
     private ArrayList<People> people;
 
-    public Room (String roomName){
+    public Room(String roomName) {
         this.roomName = roomName;
         this.people = new ArrayList<>();
     }
@@ -17,8 +17,15 @@ public abstract class Room {
         return people;
     }
 
-    public void addPeopleToRoom(People person){
+    public void addPeopleToRoom(People person) {
         this.people.add(person);
-
     }
+
+    public void removePeopleFromRoom() {
+        this.people.clear();
+    }
+
+
+
+
 }

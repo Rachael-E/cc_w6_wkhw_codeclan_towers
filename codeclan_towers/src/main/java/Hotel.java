@@ -34,14 +34,23 @@ public class Hotel {
         this.hotelPeople.add(person);
     }
 
-    public void addPeopleToRoom(Room room){
+    public void checkGuestIntoRoom(Room room){
        People personToAdd = this.hotelPeople.remove(0);
        room.addPeopleToRoom(personToAdd);
     }
 
-//    public void addHotelPeopleToHotelBedRoom(People person){
-//     this.hotelRooms.add(person);
+    public void checkGuestOutofRoom(Room room){
+        room.removePeopleFromRoom();
+    }
 
+    public String getPersonInfoFromRoom(Room room) {
+//        for (int i = 0; i < room.getPeople().size(); i++)
+//            return (room.getPeople().get(i));
+        return room.getPeople().get(0).getName();
+    }
+
+//    public People checkGuestInfoInRoom (){
+//    }
 
 
 }

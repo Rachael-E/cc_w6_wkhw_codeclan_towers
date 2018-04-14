@@ -51,12 +51,31 @@ public class HotelTest {
         assertEquals(1, hotel1.getHotelPeople().size());
     }
 
-//    @Test
-//    public void hotelCanAddPeopleToRoom(){
-//
-//        hotel1.addPeopleToRoom(bedroom1);
-//        assertEquals(1, hotel1.getHotelPeople().size());
-//    }
+    @Test
+    public void hotelCanAddPeopleToARoom(){
+        hotel1.addPeopleToHotel(person1);
+        hotel1.checkGuestIntoRoom(bedroom1);
+        assertEquals(0, hotel1.getHotelPeople().size());
+        assertEquals(1, bedroom1.getPeople().size());
+    }
+
+    @Test
+    public void hotelCanRemovePeopleFromRoom(){
+        hotel1.addPeopleToHotel(person1);
+        hotel1.checkGuestIntoRoom(bedroom1);
+        hotel1.checkGuestOutofRoom(bedroom1);
+        assertEquals(0, hotel1.getHotelPeople().size());
+        assertEquals(0, bedroom1.getPeople().size());
+
+    }
+
+    @Test
+    public void hotelCanGetGuestInfo(){
+        hotel1.addPeopleToHotel(person1);
+        hotel1.checkGuestIntoRoom(bedroom1);
+        assertEquals(1, bedroom1.getPeople().size());
+        assertEquals("Fat Cat Joe", hotel1.getPersonInfoFromRoom(bedroom1));
+    }
 
 
 
