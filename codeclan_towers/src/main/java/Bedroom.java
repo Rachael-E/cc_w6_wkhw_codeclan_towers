@@ -21,7 +21,17 @@ public class Bedroom extends Room {
         return bedroomType.getRoomType();
     }
 
-    public int getBedroomCapacity(){
+    public int getRoomCapacity() {
         return bedroomType.getCapacity();
     }
+
+    public boolean isBedRoomOccupied() {
+        return (getPeople().size() > 0);
+    }
+
+    // returns true if room capacity is equal to people in the room. Returns false if bedroom isn't full//
+    public boolean isBedRoomFull(){
+        return (getRoomCapacity() == getPeople().size());
+    }
+
 }

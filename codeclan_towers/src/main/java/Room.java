@@ -18,10 +18,6 @@ public abstract class Room {
         return people;
     }
 
-    public String getPeopleName() {
-        return people.get(0).getName();
-
-    }
 
     public void addPeopleToRoom(People person) {
         this.people.add(person);

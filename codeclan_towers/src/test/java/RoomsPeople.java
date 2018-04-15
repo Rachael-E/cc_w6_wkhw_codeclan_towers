@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class RoomsPeople {
     private Bedroom bedroom1;
+    private Bedroom bedroom2;
     private People person1;
     private People person2;
     private DiningRoom diningroom1;
@@ -16,6 +17,7 @@ public class RoomsPeople {
     @Before
     public void before() {
         bedroom1 = new Bedroom("Deluxe Cardboard Box", 50, BedroomType.SINGLE);
+        bedroom2 = new Bedroom("Plush Pillow Penthouse", 500, BedroomType.PENTHOUSE);
         diningroom1 = new DiningRoom("Sheba Restaurant", 25);
         conferenceRoom1 = new ConferenceRoom("The Clowder", 25, 100);
 
@@ -57,20 +59,13 @@ public class RoomsPeople {
 
     @Test
     public void bedroomHasCapacity() {
-        assertEquals(1, bedroom1.getBedroomCapacity());
+        assertEquals(1, bedroom1.getRoomCapacity());
     }
 
     @Test
     public void bedroomHasGuest() {
         bedroom1.addPeopleToRoom(person1);
         assertEquals(1, bedroom1.getPeople().size());
-    }
-
-    // Trying to return a guest's name from an array...
-    @Test
-    public void bedroomHasGuestName() {
-        bedroom1.addPeopleToRoom(person1);
-        assertEquals("Fat Cat Joe", bedroom1.getPeopleName());
     }
 
     @Test
@@ -108,6 +103,24 @@ public class RoomsPeople {
     public void conferenceRoomCanSetRate() {
         conferenceRoom1.setDailyRate(200);
         assertEquals(200, conferenceRoom1.getDailyRate(), 0.1);
+    }
+
+    @Test
+    public void checkIfBedRoomIsOccupied(){
+        bedroom1.addPeopleToRoom(person1);
+        assertEquals(true, bedroom1.isBedRoomOccupied());
+    }
+
+    @Test
+    public void checkIfBedRoomIsNotFull(){
+        bedroom2.addPeopleToRoom(person1);
+        assertEquals(false, bedroom2.isBedRoomFull());
+    }
+//
+    @Test
+    public void checkIfBedRoomIsFull(){
+        bedroom1.addPeopleToRoom(person1);
+        assertEquals(true, bedroom1.isBedRoomFull());
     }
 
 

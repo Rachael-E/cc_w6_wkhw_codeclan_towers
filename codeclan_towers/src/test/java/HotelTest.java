@@ -69,7 +69,7 @@ public class HotelTest {
     }
 
     @Test
-    public void hotelCanAddPeopleToARoomAndRemoveFromHotel(){
+    public void hotelCanAddAndRemovePeopleFromHotel(){
         hotel1.addPeopleToHotel(person1);
         hotel1.checkGuestIntoRoomAndRemoveFromHotel(bedroom1);
         assertEquals(0, hotel1.getHotelPeople().size());
@@ -77,44 +77,45 @@ public class HotelTest {
     }
 
     @Test
-    public void hotelCanAddParticularPersonToAParticularRoom(){
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person1, bedroom1);
+    public void hotelCanAddGuestToBedRoom(){
+        hotel1.checkGuestintoBedRoomIfSpace(person1, bedroom1);
         assertEquals(1, bedroom1.getPeople().size());
     }
 
     @Test
     public void hotelCannotAddPersonToRoomIfFull(){
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person1, bedroom1);
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person2, bedroom1);
+        hotel1.checkGuestintoBedRoomIfSpace(person1, bedroom1);
+        hotel1.checkGuestintoBedRoomIfSpace(person2, bedroom1);
         assertEquals(1, bedroom1.getPeople().size());
     }
 
     @Test
     public void hotelCanCheckGuestOutOfRoom(){
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person1, bedroom1);
-        hotel1.checkGuestOutofRoom(bedroom1);
+        hotel1.checkGuestintoBedRoomIfSpace(person1, bedroom1);
+        hotel1.checkGuestOutOfRoom(bedroom1);
         assertEquals(0, bedroom1.getPeople().size());
     }
 
     @Test
     public void hotelCanGetGuestInfoAsNumber(){
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person1, bedroom2);
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person2, bedroom2);
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person3, bedroom2);
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person4, bedroom2);
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person5, bedroom2);
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person6, bedroom2);
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person7, bedroom2);
+        hotel1.checkGuestintoBedRoomIfSpace(person1, bedroom2);
+        hotel1.checkGuestintoBedRoomIfSpace(person2, bedroom2);
+        hotel1.checkGuestintoBedRoomIfSpace(person3, bedroom2);
+        hotel1.checkGuestintoBedRoomIfSpace(person4, bedroom2);
+        hotel1.checkGuestintoBedRoomIfSpace(person5, bedroom2);
+        hotel1.checkGuestintoBedRoomIfSpace(person6, bedroom2);
+        hotel1.checkGuestintoBedRoomIfSpace(person7, bedroom2);
         assertEquals(7, hotel1.getPeopleListAsNumberFromRoom(bedroom2).size());
 
     }
 
     @Test
     public void hotelCanGetGuestNames(){
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person1, bedroom2);
-        hotel1.checkParticularGuestintoParticularRoomIfSpace(person2, bedroom2);
+        hotel1.checkGuestintoBedRoomIfSpace(person1, bedroom2);
+        hotel1.checkGuestintoBedRoomIfSpace(person2, bedroom2);
         assertEquals("Fat Cat Joe, Kitty Minaj, ", hotel1.getPersonInfoFromRoom(bedroom2));
     }
+
 
 
 }
