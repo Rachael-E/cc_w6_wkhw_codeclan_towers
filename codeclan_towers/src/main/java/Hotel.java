@@ -59,16 +59,16 @@ public class Hotel {
         return room.getPeople();
     }
 
+    public String getPersonInfoFromRoom(Room room) {
+        String listOfGuestNames = "";
+        for (int i = 0; i < room.getPeople().size(); i++) {
+            listOfGuestNames += room.getPeople().get(i).getName() + ", ";
+          }
+        return listOfGuestNames;
+    }
 
-    // for all People in Arraylist, get their index number, and find and store their name. Then return all names (concatonate?)
+//        return (room.getPeople().get(0).getName()).concat(room.getPeople().get(1).getName());
 
-//    public String getPersonInfoFromRoom(Room room) {
-//        for (int i = 0; i < room.getPeople().size(); i++){
-//            (room.getPeople().get(i).getName();
-//          }
-//
-//        return room.getPeople().get(0).getName();
-//    }
 
 
 }

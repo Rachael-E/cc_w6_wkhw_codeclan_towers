@@ -109,5 +109,12 @@ public class HotelTest {
 
     }
 
+    @Test
+    public void hotelCanGetGuestNames(){
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person1, bedroom2);
+        hotel1.checkParticularGuestintoParticularRoomIfSpace(person2, bedroom2);
+        assertEquals("Fat Cat Joe, Kitty Minaj, ", hotel1.getPersonInfoFromRoom(bedroom2));
+    }
+
 
 }
