@@ -105,7 +105,7 @@ public class HotelTest {
         hotel1.checkParticularGuestintoParticularRoomIfSpace(person5, bedroom2);
         hotel1.checkParticularGuestintoParticularRoomIfSpace(person6, bedroom2);
         hotel1.checkParticularGuestintoParticularRoomIfSpace(person7, bedroom2);
-        assertEquals(7, hotel1.getPeopleListFromRoom(bedroom2).size());
+        assertEquals(7, hotel1.getPeopleListAsNumberFromRoom(bedroom2).size());
 
     }
 

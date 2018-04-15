@@ -17,7 +17,7 @@ public class Hotel {
         this.bedRoom = bedRoom;
         this.conferenceRoom = conferenceRoom;
     }
-
+    //*** Getter methods for hotel ***//
     public String getHotelName() {
         return hotelName;
     }
@@ -30,35 +30,36 @@ public class Hotel {
         return hotelRooms;
     }
 
+    //*** add a room to the empty array list of rooms in hotel ***//
     public void addRoomToHotel(Room room) {
         this.hotelRooms.add(room);
     }
-
+    //*** add a person to the empty array list of people in hotel ***//
     public void addPeopleToHotel(People person) {
         this.hotelPeople.add(person);
     }
 
-
+    //*** Check a guest into a particular room if there is space to do so ***//
+    //** if room size is greater than amount of guests checking in, allow the room to add the guest. **//
     public void checkParticularGuestintoParticularRoomIfSpace(People guest, Bedroom room) {
-        // if room size is greater than amount of guests checking in, allow the room to add the guest.
-        if (room.getBedroomCapacity() > getPeopleListFromRoom(room).size()){
+        if (room.getBedroomCapacity() > getPeopleListAsNumberFromRoom(room).size()){
         room.addPeopleToRoom(guest);}
     }
 
+    //*** if the hotel was a lobby, people would be being moved out of the lobby, and into the room.***//
     public void checkGuestIntoRoomAndRemoveFromHotel(Bedroom room) {
-
         room.addPeopleToRoom(this.hotelPeople.remove(0));
     }
-
+    //*** when the guest leaves, they may walk straight out of the room to check out.***//
     public void checkGuestOutofRoom(Bedroom room) {
         room.removePeopleFromRoom();
     }
 
-
-    public ArrayList<People> getPeopleListFromRoom(Bedroom room) {
+    public ArrayList<People> getPeopleListAsNumberFromRoom(Bedroom room) {
         return room.getPeople();
     }
 
+    //*** For all the guests within a room, loop through their index numbers using a for loop, and return the value of that index number to call the getName method on it, thereby returning a list of names.***//
     public String getPersonInfoFromRoom(Room room) {
         String listOfGuestNames = "";
         for (int i = 0; i < room.getPeople().size(); i++) {
@@ -66,9 +67,7 @@ public class Hotel {
           }
         return listOfGuestNames;
     }
-
-//        return (room.getPeople().get(0).getName()).concat(room.getPeople().get(1).getName());
-
-
-
+    //*** Another method to concatonate the names, but this isn't neat.***//
+    //  return (room.getPeople().get(0).getName()).concat(room.getPeople().get(1).getName());
+    
 }
