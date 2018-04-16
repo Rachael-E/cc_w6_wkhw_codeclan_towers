@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -6,7 +7,7 @@ public class Hotel {
     private String hotelName;
     private ArrayList<Room> hotelRooms;
     private ArrayList<People> hotelPeople;
-    private ArrayList<Bedroom> bedRoom; //not clear if this should be accessible by Hotel. It's the only way I can access bedroom capacity.
+//    private ArrayList<Bedroom> bedRoom; //not clear if this should be accessible by Hotel. It's the only way I can access bedroom capacity.
     private ArrayList<ConferenceRoom> conferenceRoom;
 
 
@@ -14,7 +15,7 @@ public class Hotel {
         this.hotelName = hotelName;
         this.hotelRooms = new ArrayList<>();
         this.hotelPeople = new ArrayList<>();
-        this.bedRoom = bedRoom;
+//        this.bedRoom = bedRoom;
         this.conferenceRoom = conferenceRoom;
     }
 
@@ -29,6 +30,19 @@ public class Hotel {
 
     public ArrayList<Room> getHotelRooms() {
         return hotelRooms;
+    }
+
+        //*** this method returns the number of rooms of type bedroom which are in the hotel. IF they are equal to Bedroom class, then add a new object of type bedroom to the new array list called bedrooms.//
+    public ArrayList<Bedroom> getHotelBedrooms() {
+        ArrayList<Bedroom> bedrooms = new ArrayList<Bedroom>();
+        for (Room r: hotelRooms) {
+            if (r.getClass() == Bedroom.class) {
+                bedrooms.add( (Bedroom) r);
+                bedrooms.add( (Bedroom) r);
+            }
+        }
+
+        return bedrooms;
     }
 
     //*** add a room to the empty array list of rooms in hotel ***//
@@ -59,7 +73,7 @@ public class Hotel {
         room.removePeopleFromRoom();
     }
 
-    public ArrayList<People> getPeopleListAsNumberFromRoom(Bedroom room) {
+    public ArrayList<People> getPeopleListAsNumberFromRoom(Room room) {
         return room.getPeople();
     }
 
@@ -70,8 +84,11 @@ public class Hotel {
         for (int i = 0; i < room.getPeople().size(); i++) {
             listOfGuestNames += room.getPeople().get(i).getName() + ", "; //+= has a warning for concatenation?
         }
+
         return listOfGuestNames;
     }
+
+    //return a list of vacant rooms
 
 
 

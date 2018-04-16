@@ -29,7 +29,7 @@ public class Bedroom extends Room {
         return (getPeople().size() > 0);
     }
 
-    // returns true if room capacity is equal to people in the room. Returns false if bedroom isn't full//
+    // returns true if room capacity is equal to people in the room (i.e. the room is full). Returns false if bedroom isn't full//
     public boolean isBedRoomFull(){
         return (getRoomCapacity() == getPeople().size());
     }

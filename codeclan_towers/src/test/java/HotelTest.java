@@ -58,6 +58,12 @@ public class HotelTest {
     }
 
     @Test
+    public void hotelCanGetBedrooms(){
+        hotel1.addRoomToHotel(bedroom1);
+        assertEquals(2, hotel1.getHotelBedrooms().size());
+    }
+
+    @Test
     public void hotelStartsNoPeople(){
         assertEquals(0, hotel1.getHotelPeople().size());
     }
